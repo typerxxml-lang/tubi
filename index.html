@@ -904,7 +904,7 @@ const isAr=t=>/[\u0600-\u06FF]/.test(t||'');
 function smart(v){let x=0;const L=P.lg;if(L&&L.a+L.o>6){const r=L.a/(L.a+L.o);x+=(isAr(v.title)?r-.5:.5-r)*8}if(P.dm&&v.dur>0)x-=Math.min(3,Math.abs(Math.log(v.dur)-P.dm));if(P.lk&&P.lk[v.id]==-1)x-=10;return x}
 {const _l=learn;learn=function(v,w){_l(v,w);try{if(v&&w>0){const L=P.lg=P.lg||{a:0,o:0};isAr(v.title)?L.a+=w:L.o+=w;if(v.dur>0)P.dm=P.dm?P.dm*.85+Math.log(v.dur)*.15:Math.log(v.dur)}}catch(_){}}}
 /* تخفيف الحمل أثناء تشغيل المقطع */
-{const pe=$('#pl');new MutationObserver(()=>document.body.classList.toggle('mp',!pe.hidden)).observe(pe,{attributes:true,attributeFilter:['hidden','class']})}
+{const pe=$('#pl');new MutationObserver(()=>document.body.classList.toggle('mp',!pe.hidden&&!pe.classList.contains('mini'))).observe(pe,{attributes:true,attributeFilter:['hidden','class']})}
 /* اللغات */
 const LD=`المظهر|Appearance|ظاہری شکل
 حسابي|My account|میرا اکاؤنٹ

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0e0f12">
 <title>تيوبي - مشاهدة بذوقك</title>
-<meta name="description" content="تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتشغيل بالخلفية وتصميم زجاجي سائل.">
-<meta property="og:title" content="تيوبي"><meta property="og:description" content="تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتشغيل بالخلفية وتصميم زجاجي سائل."><meta property="og:type" content="website"><meta property="og:image" content="icon-512.png">
+<meta name="description" content="تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتصميم زجاجي سائل.">
+<meta property="og:title" content="تيوبي"><meta property="og:description" content="تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتصميم زجاجي سائل."><meta property="og:type" content="website"><meta property="og:image" content="icon-512.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="تيوبي">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%239db0ff'/%3E%3Cg fill='%2310131f'%3E%3Crect x='7' y='9' width='4.5' height='14' rx='2.2'/%3E%3Crect x='13.8' y='6' width='4.5' height='17' rx='2.2'/%3E%3Crect x='20.5' y='11' width='4.5' height='12' rx='2.2'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="icon-512.png">
@@ -358,11 +358,12 @@ body.rm #bgm{display:none}
 body::after{background:linear-gradient(90deg,transparent,var(--ac),transparent) -50% 0/50% 100% no-repeat}
 h2,.gr{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--t);animation:up .6s backwards}
 .ver{background:none;color:var(--ac);animation:none}
-#hd{top:0;left:0;right:0;max-width:none;margin:0;height:calc(60px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 12px 0;border-radius:0 0 26px 26px}
-#app{padding-top:calc(76px + env(safe-area-inset-top,0px))}
-#rsg{top:calc(66px + env(safe-area-inset-top,0px))}
+:root{--ht:max(6px,calc(env(safe-area-inset-top,0px) - 6px))}
+#hd{top:var(--ht);left:12px;right:12px;height:58px;padding:0 9px 0 10px;border-radius:29px;max-width:760px;margin-inline:auto}
+#app{padding-top:calc(var(--ht) + 74px)}
+#rsg{top:calc(var(--ht) + 66px)}
 @media(min-width:768px){.sbx{max-width:720px;margin-inline:auto}}
-#hd .lg{cursor:pointer}.lg.spin{animation:spin .8s cubic-bezier(.3,1.4,.5,1)}
+#hd .lg{cursor:pointer}.lg.go .b{animation-play-state:running}
 @keyframes spin{0%{transform:scale(.8) rotate(0)}60%{transform:scale(1.25) rotate(380deg)}100%{transform:rotate(360deg)}}
 .mt{display:flex;gap:12px;align-items:flex-start}.mc{min-width:0;flex:1}.cav2{display:block;cursor:pointer}
 .av2{position:relative;flex:none;width:40px;height:40px;border-radius:50%;background:var(--ag);color:var(--onac);display:grid;place-items:center;font-weight:800;overflow:hidden}
@@ -386,12 +387,36 @@ h2,.gr{background:none;-webkit-background-clip:border-box;background-clip:border
 #pl.mini.dk{translate:calc(100% - 24px) 0}#pl.mini.dk.lf{translate:calc(-100% + 24px) 0}
 #pl.mini.dk #mtb{display:block;position:absolute;z-index:3;top:0;bottom:0;left:0;width:36px;border:0;background:var(--ac);opacity:.9}
 #pl.mini.dk.lf #mtb{left:auto;right:0}
+
+/* ===== تحسينات التصميم ===== */
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+::selection{background:var(--ac);color:var(--onac)}
+*{scrollbar-width:thin;scrollbar-color:rgba(127,127,140,.4) transparent}
+.fl{width:20px;height:14px;display:inline-block;vertical-align:-2px;margin-inline-start:5px}
+.so b{display:flex;align-items:center;gap:8px}
+.so svg,.pi svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.pi{display:flex!important;align-items:center;justify-content:flex-start;gap:10px}
+.chh small svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;vertical-align:-2px;margin-inline-end:4px}
+.vf svg{width:14px;height:14px;fill:none;stroke:var(--ac);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vertical-align:-2px}
+h2{font-size:22px;font-weight:800;letter-spacing:-.2px}
+.v{content-visibility:auto;contain-intrinsic-size:auto 290px;transition:transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .35s}
+.v:active{transform:scale(.975)}
+.th img{transition:scale .6s cubic-bezier(.2,.8,.2,1)}.v:hover .th img{scale:1.05}
+.du{background:rgba(0,0,0,.68);color:#fff;font-weight:700;letter-spacing:.3px}
+.mt b{font-weight:700;line-height:1.55}.mt small{display:block;margin-top:4px;color:var(--t2);font-weight:500}
+.av2{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px rgba(127,127,140,.3)}
+.chip{font-weight:700;transition:transform .25s cubic-bezier(.3,1.5,.5,1),background .3s,box-shadow .3s}.chip:active{transform:scale(.93)}.chip.on{box-shadow:0 8px 22px -8px var(--ac)}
+.sbx{transition:box-shadow .3s}.sbx:focus-within{box-shadow:0 0 0 2px var(--ac)}
+.sk{background:linear-gradient(100deg,rgba(127,127,140,.1) 30%,rgba(127,127,140,.22) 50%,rgba(127,127,140,.1) 70%) 0 0/200% 100%;animation:shim 1.3s linear infinite}
+@keyframes shim{to{background-position:-200% 0}}
+.ms{text-align:center;color:var(--t2);padding:48px 20px;line-height:2}
+.ab{transition:transform .25s cubic-bezier(.3,1.5,.5,1),background .3s}.ab:active{transform:scale(.92)}
 </style>
 </head>
 <body>
 <div id="bgm"><i></i><i></i><i></i></div>
 <svg id="defs" width="0" height="0" style="position:absolute"></svg>
-<div id="sp"><svg class="lg sq" viewBox="0 0 32 32"><rect width="32" height="32" rx="0" fill="var(--ac)"/><g fill="var(--onac)"><rect class="b" x="7" y="9" width="4.5" height="14" rx="2.2"/><rect class="b" x="13.8" y="6" width="4.5" height="17" rx="2.2"/><rect class="b" x="20.5" y="11" width="4.5" height="12" rx="2.2"/></g></svg>تيوبي<em class="sbd">صناعة سعودية 🇸🇦</em></div>
+<div id="sp"><svg class="lg sq" viewBox="0 0 32 32"><rect width="32" height="32" rx="0" fill="var(--ac)"/><g fill="var(--onac)"><rect class="b" x="7" y="9" width="4.5" height="14" rx="2.2"/><rect class="b" x="13.8" y="6" width="4.5" height="17" rx="2.2"/><rect class="b" x="20.5" y="11" width="4.5" height="12" rx="2.2"/></g></svg>تيوبي<em class="sbd">صناعة سعودية <svg class="fl" viewBox="0 0 24 16"><rect width="24" height="16" rx="3" fill="#0b7d3f"/><path d="M7 11.5h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 6.2h7" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity=".9"/></svg></em></div>
 
 <header class="glass" id="hd" data-rf="29,20,40">
   <svg class="lg sq" viewBox="0 0 32 32"><rect width="32" height="32" rx="0" fill="var(--ac)"/><g fill="var(--onac)"><rect class="b" x="7" y="9" width="4.5" height="14" rx="2.2"/><rect class="b" x="13.8" y="6" width="4.5" height="17" rx="2.2"/><rect class="b" x="20.5" y="11" width="4.5" height="12" rx="2.2"/></g></svg>
@@ -421,12 +446,12 @@ h2,.gr{background:none;-webkit-background-clip:border-box;background-clip:border
 <div id="ts" class="sq"></div>
 <div id="pk" hidden role="dialog" aria-modal="true" aria-labelledby="pkt"><div class="pkc"><i class="gl glass" data-rf="40,26,60,14"></i><div class="cn2"><h3 id="pkt"></h3><div id="pkl"></div></div></div></div>
 <div id="lg" hidden>
- <div class="lc"><span id="lgl"></span><h1>أهلاً بك في تيوبي</h1><p>تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتشغيل بالخلفية وتصميم زجاجي سائل.</p>
-  <div class="ft"><span>مقاطع</span><span>شورتس</span><span>توصيات ذكية</span><span>تشغيل بالخلفية</span></div>
+ <div class="lc"><span id="lgl"></span><h1>أهلاً بك في تيوبي</h1><p>تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتصميم زجاجي سائل.</p>
+  <div class="ft"><span>مقاطع</span><span>شورتس</span><span>توصيات ذكية</span></div>
   <label class="gi sq"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg><input id="nm" maxlength="20" placeholder="اكتب اسمك" autocomplete="off" enterkeyhint="go"></label>
   <button class="tr" id="tg" type="button"><span class="ck"></span><span>قرأت ووافقت على الخصوصية والبنود والسياسة</span></button>
   <button class="bt sq" id="go" disabled>دخول</button><button class="chip sq" id="lcx" hidden>إلغاء</button>
-  <small>بدون كلمة سر. اسمك بس يتخزّن على جوالك.</small><small class="sbd">صناعة سعودية 🇸🇦</small></div></div>
+  <small>بدون كلمة سر. اسمك بس يتخزّن على جوالك.</small><small class="sbd">صناعة سعودية <svg class="fl" viewBox="0 0 24 16"><rect width="24" height="16" rx="3" fill="#0b7d3f"/><path d="M7 11.5h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 6.2h7" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity=".9"/></svg></small></div></div>
 <div id="tm" hidden role="dialog" aria-modal="true" aria-label="الخصوصية والبنود والسياسة"><div class="tmc"><i class="gl glass" data-rf="40,26,60,14"></i><div class="cn2"><h2>الخصوصية والبنود والسياسة</h2><div class="pbar"><i></i></div><div class="tms" id="tms"></div><button class="bt sq" id="tok" disabled>اقرأ للنهاية لتوافق</button></div></div></div>
 
 <script>
@@ -572,8 +597,8 @@ function show(){
  if(view=='saved'){const a=sub=='saved'?ld():sub=='subs'?[]:P.hist;H_(A,'<div class="sg sq" style="margin-bottom:14px"><button class="sq" data-s="saved">المحفوظات</button><button class="sq" data-s="hist">السجل</button><button class="sq" data-s="subs">القنوات</button></div><div id="rs"></div>');
   $$('[data-s]').forEach(x=>x.classList.toggle('on',x.dataset.s==sub));
   if(sub=='subs')return subsList();if(a.length)put(a);else H_($('#rs'),'<div class="ms">'+(sub=='saved'?'ما عندك مقاطع محفوظة.<br>افتح أي مقطع واضغط «حفظ».':'ما شاهدت شي للحين.')+'</div>');return}
- H_(A,`<h2>الإعدادات</h2><div class="hero soft sq">${LG}<div><b>تيوبي</b><small>شاهد على كيفك · صناعة سعودية 🇸🇦</small></div></div>
- <div class="st soft sq" style="--i:0"><b>المظهر</b><div class="sty"><button class="so sq" data-y="glass"><b>Liquid Glass ✨ (الأساسي)</b><small>مناسب لأجهزة Android 14 بما فوق ومناسب لأجهزة iOS 26 بما فوق</small></button><button class="so sq" data-y="my"><b>Material You 🎨</b><small>مناسب لأجهزة Android 10 بما فوق</small></button></div><small>Material You يحوّل الهيدر والبار والشريط العلوي كله لألوان عادية بدون شفافية.</small></div>
+ H_(A,`<h2>الإعدادات</h2><div class="hero soft sq">${LG}<div><b>تيوبي</b><small>شاهد على كيفك · صناعة سعودية <svg class="fl" viewBox="0 0 24 16"><rect width="24" height="16" rx="3" fill="#0b7d3f"/><path d="M7 11.5h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 6.2h7" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity=".9"/></svg></small></div></div>
+ <div class="st soft sq" style="--i:0"><b>المظهر</b><div class="sty"><button class="so sq" data-y="glass"><b>${ic(GLI)} Liquid Glass (الأساسي)</b><small>مناسب لأجهزة Android 14 بما فوق ومناسب لأجهزة iOS 26 بما فوق</small></button><button class="so sq" data-y="my"><b>${ic(MYI)} Material You</b><small>مناسب لأجهزة Android 10 بما فوق</small></button></div><small>Material You يحوّل الهيدر والبار والشريط العلوي كله لألوان عادية بدون شفافية.</small></div>
  <div class="st soft sq" style="--i:0"><b>حسابي</b><div class="row"><span>${esc(U?U.n:'')}</span><button class="bt sq" id="ren">تعديل الاسم</button></div><div class="row"><span>الخصوصية والبنود والسياسة</span><button class="chip sq" id="rdt">اقرأ</button></div><div class="row"><span>تسجيل الخروج</span><button class="chip sq" id="lo">خروج</button></div></div>
  <div class="st soft sq" style="--i:1"><b>عن تيوبي</b><small>${DESC}</small><div class="row"><span class="ver">الإصدار 1.100 we</span><button class="bt sq" id="ins">تثبيت التطبيق</button></div><div class="row"><span>شارك التطبيق مع أصدقائك</span><button class="chip sq" id="shapp">مشاركة</button></div></div>
  <div class="st soft sq" style="--i:2"><b>الوضع</b><div class="sg sq"><button class="sq" data-m="auto">تلقائي</button><button class="sq" data-m="dark">داكن</button><button class="sq" data-m="light">فاتح</button></div><small>اختيار الوضع يرجّع لون الخلفية للافتراضي.</small></div>
@@ -663,44 +688,35 @@ let wt='sim',wc={},wl=[],bgOn=0,BA=null,T=0;
 const fc=(fn,a=[])=>{try{$('#fr iframe').contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:a}),'*')}catch(_){}};
 const stopBg=()=>{if(BA){BA.pause();BA=null}bgOn=0};
 const ab=(k,id,l,on)=>`<button class="ab${on?' on':''}" id="${id}">${ic(IC[k])}<span>${l}</span></button>`;
-function openV(v,kp){if(!v)return;clearTimeout(bt);if(S.br)bt=setTimeout(()=>toast('مضى ٤٥ دقيقة، خذ استراحة 🌿'),2700000);
+function openV(v,kp){if(!v)return;clearTimeout(bt);if(S.br)bt=setTimeout(()=>toast('مضى ٤٥ دقيقة، خذ استراحة'),2700000);
  if(!kp&&($('#pl').hidden||$('#pl').classList.contains('mini'))){history.pushState({w:1},'');$('#pl').classList.remove('mini','dk','big','lf');$('#pl').style.cssText=''}
  savePos();cv=v;T=0;stopBg();const st=Math.floor((P.pos||{})[v.id]||0);if(st>10)toast('كملنا من حيث وقفت');P.hist=[v,...P.hist.filter(x=>x.id!=v.id)].slice(0,60);learn(v,1);
  const l=P.lk[v.id],s=ld().some(x=>x.id==v.id);
  $('#fr').innerHTML=`<iframe referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0&playsinline=1&enablejsapi=1&start=${st}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
  const f=$('#fr iframe');f.onload=()=>{try{f.contentWindow.postMessage(JSON.stringify({event:'listening',id:1,channel:'widget'}),'*')}catch(_){}};
  $('#wb').innerHTML=`<div class="wi"><h3>${esc(v.title)}</h3><small class="wm">${v.views>0?nf.format(v.views)+' مشاهدة':''}</small>
-<div class="chr"><div class="av">${esc((v.by||'؟')[0])}${(v.av||AV[v.cid])?`<img class="cavi" src="${esc(v.av||AV[v.cid])}" alt="">`:''}</div><div class="cn"><b>${esc(v.by)}</b><small>القناة</small></div><button class="bt" id="vc">عرض القناة</button></div>
-<div class="ar"><div class="lg2"><button class="ab${l==1?' on':''}" id="lk">${ic(IC.up)}<span>يعجبني</span></button><button class="ab${l==-1?' on':''}" id="dk" aria-label="لا يعجبني">${ic(IC.dn)}</button></div>${ab('sv','sv',s?'محفوظ':'حفظ',s)}${ab('bg','bgb','تشغيل بالخلفية')}${ab('sp','spd','السرعة')}${ab('tm','slp','مؤقت النوم')}${ab('sh','sh','مشاركة')}<a class="ab" id="yt" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=${v.id}">${ic(IC.yt)}<span>يوتيوب</span></a></div>
-<div class="dsc" id="dsc"><b>الوصف</b> <small id="dsm"></small><div id="dst" class="dsx">جاري تحميل الوصف…</div></div><div class="sg wtb"><button data-w="sim">محتوى مشابه</button><button data-w="ch">مقاطع من القناة</button></div><div id="wl"></div></div>`;
+<div class="chr"><div class="av">${esc((v.by||'؟')[0])}${(v.av||AV[v.cid])?`<img class="cavi" src="${esc(v.av||AV[v.cid])}" alt="">`:''}</div><div class="cn"><b>${esc(v.by)}</b><small>القناة</small></div></div>
+<div class="ar"><div class="lg2"><button class="ab${l==1?' on':''}" id="lk">${ic(IC.up)}<span>يعجبني</span></button><button class="ab${l==-1?' on':''}" id="dk" aria-label="لا يعجبني">${ic(IC.dn)}</button></div>${ab('sv','sv',s?'محفوظ':'حفظ',s)}${ab('sp','spd','السرعة')}${ab('tm','slp','مؤقت النوم')}${ab('sh','sh','مشاركة')}<a class="ab" id="yt" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=${v.id}">${ic(IC.yt)}<span>يوتيوب</span></a></div>
+<div class="sg wtb"><button data-w="sim">محتوى مشابه</button><button data-w="ch">مقاطع من القناة</button></div><div id="wl"></div></div>`;
  const p=$('#pl');p.hidden=false;p.scrollTop=0;document.body.style.overflow=p.classList.contains('mini')?'':'hidden';wtab('sim');vdesc(v)}
 async function wtab(k){wt=k;const v=cv,key=k+v.id,L=$('#wl');$$('[data-w]').forEach(x=>x.classList.toggle('on',x.dataset.w==k));
  L.innerHTML='<div class="sk sq"></div>'.repeat(2);sqAll(L);
  try{if(!wc[key])wc[key]=k=='ch'?(await api('se',v.by)).filter(x=>x.by==v.by&&x.id!=v.id):(await api('se',words(v.title).slice(0,3).join(' ')||v.by)).filter(x=>x.id!=v.id&&!isSh(x));
   if(cv!=v||wt!=k)return;wl=wc[key];H_(L,wl.length?wl.map(card).join(''):'<div class="ms">ما لقيت مقاطع الحين.</div>')}
  catch(_){if(cv==v&&wt==k)L.innerHTML='<div class="ms">تعذّر التحميل، جرّب مرة ثانية.</div>'}}
-async function bgAudio(id){for(const h of H.filter(x=>x.t=='p')){try{const r=await fetch(h.u+'/streams/'+id,{signal:AbortSignal.timeout(7000)});if(!r.ok)continue;const j=await r.json(),A=j.audioStreams||[],a=A.filter(x=>/mp4|m4a/.test(x.mimeType||'')).sort((x,y)=>y.bitrate-x.bitrate)[0]||A[0];if(a&&a.url)return a.url}catch(_){}}return''}
 $('#pl').addEventListener('click',async e=>{const b=e.target.closest('button,a,.v');if(!b)return;const id=b.id;
  if(b.classList.contains('v'))return openV(wl[+b.dataset.i]);
  if(b.dataset.w)return wtab(b.dataset.w);
  if(id=='cl')return closeV();
- if(id=='vc'){closeV();return chanOpen(cv)}
- if(id=='lk'||id=='dk'){const n=id=='lk'?1:-1;if(P.lk[cv.id]==n)delete P.lk[cv.id];else{P.lk[cv.id]=n;if(n>0){learn(cv,3);toast('تمام، أعرض لك مثله أكثر')}else{P.bad[cv.id]=1;P.ch[cv.by]=(P.ch[cv.by]||0)-4;toast('ما راح أعرض لك مثله')}}
+  if(id=='lk'||id=='dk'){const n=id=='lk'?1:-1;if(P.lk[cv.id]==n)delete P.lk[cv.id];else{P.lk[cv.id]=n;if(n>0){learn(cv,3);toast('تمام، أعرض لك مثله أكثر')}else{P.bad[cv.id]=1;P.ch[cv.by]=(P.ch[cv.by]||0)-4;toast('ما راح أعرض لك مثله')}}
   svP();$('#lk').classList.toggle('on',P.lk[cv.id]==1);$('#dk').classList.toggle('on',P.lk[cv.id]==-1);return pp(b)}
  if(id=='sv'){let a=ld();const has=a.some(x=>x.id==cv.id);a=has?a.filter(x=>x.id!=cv.id):[cv,...a];sv(a);b.classList.toggle('on',!has);b.querySelector('span').textContent=has?'حفظ':'محفوظ';toast(has?'أُزيل من المحفوظات':'تم الحفظ');if(!has)learn(cv,2);pp(b);if(view=='saved'&&sub=='saved')show();return}
  if(id=='spd')return pick('سرعة التشغيل',[[.75,'0.75x'],[1,'عادي'],[1.25,'1.25x'],[1.5,'1.5x'],[2,'2x']],1,v=>{fc('setPlaybackRate',[+v]);toast('السرعة '+v+'x')});
  if(id=='slp')return pick('مؤقت النوم',[[0,'إيقاف المؤقت'],[15,'بعد ١٥ دقيقة'],[30,'بعد ٣٠ دقيقة'],[60,'بعد ساعة']],0,v=>{clearTimeout(zt);if(+v){zt=setTimeout(()=>{fc('pauseVideo');if(BA)BA.pause();toast('انتهى مؤقت النوم')},v*60000);toast('بيتوقف بعد '+v+' دقيقة')}else toast('تم إيقاف المؤقت')});
  if(id=='sh'){const u='https://youtu.be/'+cv.id;try{if(navigator.share)await navigator.share({title:cv.title,url:u});else{await navigator.clipboard.writeText(u);toast('تم نسخ الرابط')}}catch(_){}return}
- if(id=='bgb'){const v=cv;if(bgOn){stopBg();b.classList.remove('on');return toast('تم إيقاف التشغيل بالخلفية')}
-  bgOn=1;b.classList.add('on');pp(b);toast('جاري التجهيز…');const u=await bgAudio(v.id);if(!bgOn||cv!=v)return;
-  if(!u){bgOn=0;b.classList.remove('on');return toast('الخلفية مو متوفرة لهذا المقطع')}
-  BA=new Audio(u);BA.preload='auto';toast('جاهز: اطلع من التطبيق وبيكمل الصوت')}});
+ });
 const pp=b=>{b.classList.remove('pp');void b.offsetWidth;b.classList.add('pp')};
 addEventListener('message',e=>{if(typeof e.data!='string'||e.origin.indexOf('youtube')<0)return;try{const d=JSON.parse(e.data);if(d.info&&typeof d.info.currentTime=='number')T=d.info.currentTime;if(d.info&&d.info.playerState===0&&cv&&P.pos){delete P.pos[cv.id];T=0}if(d.info&&d.info.playerState===0&&S.an&&wl.length&&!$('#pl').hidden&&Date.now()-LA>3000){LA=Date.now();openV(wl[0],1)}}catch(_){}});
-document.addEventListener('visibilitychange',()=>{if(!BA||$('#pl').hidden)return;
- if(document.hidden){fc('pauseVideo');BA.currentTime=T;BA.play().catch(()=>{});
-  if(navigator.mediaSession){const m=navigator.mediaSession;m.metadata=new MediaMetadata({title:cv.title,artist:cv.by,artwork:[{src:'https://i.ytimg.com/vi/'+cv.id+'/hqdefault.jpg',sizes:'480x360',type:'image/jpeg'}]});m.setActionHandler('play',()=>BA&&BA.play());m.setActionHandler('pause',()=>BA&&BA.pause())}}
- else{const t=BA.currentTime;BA.pause();fc('seekTo',[t,true]);fc('playVideo')}});
 const closeV=pop=>{const p=$('#pl');if(p.hidden||p.classList.contains('mini')||p.classList.contains('out'))return;if(pop!==1&&history.state&&history.state.w)return history.back();savePos();p.classList.add('mini');document.body.style.overflow=view=='shorts'?'hidden':''};
 const killV=pop=>{const p=$('#pl');if(p.hidden||p.classList.contains('out'))return;
  if(pop!==1&&history.state&&history.state.w)return history.back();
@@ -709,7 +725,7 @@ addEventListener('popstate',()=>closeV(1));
 addEventListener('keydown',e=>{if(e.key!='Escape')return;if(!$('#pk').hidden)return closePk();if(!$('#tm').hidden)return($('#tm').hidden=true);closeV()});
 
 /* ===== الدخول بالاسم + الشروط + الأيقونة ===== */
-const DESC='تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتشغيل بالخلفية وتصميم زجاجي سائل.';
+const DESC='تيوبي: تطبيق عربي لمشاهدة المقاطع والشورتس بتوصيات تتعلم ذوقك، مع حفظ وتصميم زجاجي سائل.';
 const TXT='<h4>الخصوصية</h4><p>التطبيق ما يطلب إيميل ولا رقم ولا كلمة سر، اسمك بس.<br>اسمك وتفضيلاتك والمحفوظات والسجل تنحفظ على جوالك فقط، وما نرسلها لأي سيرفر خاص فينا.<br>عند التصفح يتصل التطبيق بخدمات خارجية (سيرفرات Piped وInvidious ومشغّل يوتيوب) لجلب المقاطع وتشغيلها، ولها سياساتها الخاصة.<br>تقدر تمسح بياناتك أو تسجّل خروج بأي وقت من الإعدادات.</p><h4>البنود</h4><p>التطبيق للاستخدام الشخصي ويُقدَّم "كما هو" بدون ضمان استمرار الخدمة.<br>المحتوى ملك لأصحابه، والتطبيق غير تابع ليوتيوب أو قوقل.<br>ممنوع استخدام التطبيق بشكل يضر الآخرين أو يخالف الأنظمة.<br>ممكن نحدّث التطبيق أو نعدّل البنود، واستمرارك في الاستخدام يعني موافقتك.</p><h4>السياسة</h4><p>نحترم حقوق الملكية، والمقاطع تُعرض عبر مشغّل يوتيوب الرسمي.<br>ما نعرض إعلانات ولا نبيع بياناتك.<br>التوصيات تنحسب داخل جوالك من تفاعلك مع المقاطع.<br>لأي ملاحظة أو مشكلة تواصل مع مطوّر التطبيق.</p>';
 let U=null,rd=0,ag=0,dp=null;try{U=JSON.parse(localStorage.getItem('tb_u')||'null')}catch(_){}
 const gr=()=>{const h=new Date().getHours();return(h<5?'سهران؟':h<12?'صباح الخير':h<17?'يا هلا':h<21?'مساء الخير':'مساك الله بالخير')+(U?' '+U.n:'')};
@@ -829,6 +845,7 @@ if(SR){mic.hidden=false;mic.onclick=()=>{const r=new SR();r.lang='ar-SA';r.onsta
 addEventListener('keydown',e=>{if(e.key=='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();qi.focus()}});
 try{if(!S.sty)navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(v=>{if(/Android/i.test(navigator.userAgent)&&parseInt(v.platformVersion)<14)setTimeout(()=>toast('جوالك يناسبه مظهر Material You من الإعدادات'),5000)}).catch(()=>{})}catch(_){}
 /* ===== تحديث 2: قنوات + عائم + وصف + لا نهائي ===== */
+const BELL='<path d="M6 9a6 6 0 0 1 12 0c0 6 2 7 2 7H4s2-1 2-7zM10 19a2 2 0 0 0 4 0"/>',BELLX=BELL+'<path d="M4 4l16 16"/>',CHK='<path d="m5 12.5 4.5 4.5L19 7"/>',BLK='<circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/>',GLI='<path d="M12 3c3.5 4.2 6 7 6 10a6 6 0 0 1-12 0c0-3 2.5-5.8 6-10z"/>',MYI='<circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="15.5" cy="10" r="1"/><path d="M12 21c-1.6 0-1.6-2.2 0-3.2s2-2.8 4-2.8h2"/>';
 P.subs=P.subs||{};let moreFn=null,ml=0,LP=0,lpt,lp0,CHN={};const CC={},VC={},AV={};
 const iav=(t,u)=>{t=t||[];const x=t.slice().sort((a,b)=>a.width-b.width).find(z=>z.width>=64)||t[0];if(!x||!x.url)return'';return x.url.startsWith('//')?'https:'+x.url:x.url.startsWith('/')?u+x.url:x.url};
 const htx=s=>{try{return new DOMParser().parseFromString(String(s||'').replace(/<br\s*\/?>/gi,'\n'),'text/html').body.textContent}catch(_){return''}};
@@ -837,7 +854,7 @@ const io2=new IntersectionObserver(es=>{if(es[0].isIntersecting&&moreFn&&!ml&&li
 function ensSen(){let e=$('#sen');if(!e){e=document.createElement('div');e.id='sen';e.style.height='30px'}$('#app').appendChild(e);io2.unobserve(e);io2.observe(e)}
 async function loadMore(){ml=1;busy(1);const my=tok;let ad=0;try{for(let k=0;k<3;k++){let r=await moreFn();if(my!=tok)break;const ids=new Set(list.map(x=>x.id));r=spread(cap(r.filter(v=>!ids.has(v.id)&&!isSh(v)&&!P.bad[v.id]&&!(P.ch[v.by]<-3))));if(r.length){const st=list.length;list.push(...r);$('#rs').insertAdjacentHTML('beforeend',r.map((v,i)=>card(v,st+i)).join(''));sqAll($('#rs'));ad=1;break}}}catch(_){}ml=0;busy(0);ad?ensSen():setTimeout(ensSen,5000)}
 /* شعار تيوبي: تحريك + تحديث المحتوى */
-const lgo=$('#hd .lg');lgo.addEventListener('click',()=>{lgo.classList.remove('spin');void lgo.offsetWidth;lgo.classList.add('spin');qi.value='';xq.hidden=true;scrollTo({top:0,behavior:'smooth'});chip=0;if(view!='home')sel(tabs()[0]);else show()});
+const lgo=$('#hd .lg');lgo.addEventListener('click',()=>{lgo.classList.add('go');clearTimeout(lgo._t);lgo._t=setTimeout(()=>lgo.classList.remove('go'),1800);qi.value='';xq.hidden=true;scrollTo({top:0,behavior:'smooth'});chip=0;if(view!='home')sel(tabs()[0]);else show()});
 /* بيانات */
 async function chinfo(id,f){const k='ch'+id;if(!f&&CC[k])return CC[k];
  for(const h of H){try{const g=p=>fetch(h.u+p,{signal:AbortSignal.timeout(7000)}).then(r=>r.ok?r.json():Promise.reject());let o;
@@ -845,34 +862,31 @@ async function chinfo(id,f){const k='ch'+id;if(!f&&CC[k])return CC[k];
   else{const[j,m]=await Promise.all([g('/api/v1/channels/'+id),g('/api/v1/channels/'+id+'/videos')]),a=iav(j.authorThumbnails,h.u);o={n:j.author,av:a,bn:((j.authorBanners||[])[0]||{}).url,subs:j.subCount,d:j.description,ok:j.authorVerified,vs:(m.videos||m).filter(x=>x.videoId).map(x=>({id:x.videoId,title:x.title,by:j.author,dur:x.lengthSeconds,views:x.viewCount,cid:id,av:a}))}}
   if(o.av)AV[id]=o.av;return CC[k]=o}catch(_){}}throw 0}
 async function vinfo(id){if(VC[id])return VC[id];for(const h of H){try{const r=await fetch(h.u+(h.t=='p'?'/streams/'+id:'/api/v1/videos/'+id),{signal:AbortSignal.timeout(7000)});if(!r.ok)continue;const j=await r.json(),d=h.t=='p'?{d:j.description,v:j.views,l:j.likes,up:j.uploadDate,subs:j.uploaderSubscriberCount,av:j.uploaderAvatar}:{d:j.description,v:j.viewCount,l:j.likeCount,up:j.publishedText,av:iav(j.authorThumbnails,h.u),subs:j.subCountText};if(d.d!==undefined)return VC[id]=d}catch(_){}}throw 0}
-async function vdesc(v){try{const d=await vinfo(v.id);if(cv!=v)return;const e=$('#dst');if(!e)return;e.textContent=htx(d.d)||'لا يوجد وصف لهذا المقطع';$('#dsm').textContent=[d.up,d.l>0?'👍 '+nf.format(d.l):'',d.v>0?nf.format(d.v)+' مشاهدة':''].filter(Boolean).join(' · ');
- const sb=typeof d.subs=='number'?(d.subs>0?nf.format(d.subs)+' مشترك':''):d.subs;if(sb){const c=$('.chr .cn small');if(c)c.textContent=sb}
- if(d.av&&!v.av){AV[v.cid]=d.av;const a=$('.chr .av');if(a&&!a.querySelector('img'))a.insertAdjacentHTML('beforeend',`<img class="cavi" src="${esc(d.av)}" alt="">`)}}catch(_){const e=$('#dst');if(e&&cv==v)e.textContent='تعذّر تحميل الوصف'}}
-$('#pl').addEventListener('click',e=>{if(e.target.closest('#dsc'))$('#dst').classList.toggle('open')});
+async function vdesc(v){try{const d=await vinfo(v.id);if(cv!=v)return;const sb=typeof d.subs=='number'?(d.subs>0?nf.format(d.subs)+' مشترك':''):d.subs;if(sb){const c=$('.chr .cn small');if(c)c.textContent=sb}if(d.av&&!v.av){AV[v.cid]=d.av;const a=$('.chr .av');if(a&&!a.querySelector('img'))a.insertAdjacentHTML('beforeend',`<img class="cavi" src="${esc(d.av)}" alt="">`)}}catch(_){}}
 /* صفحة القناة */
 function chanOpen(v){if(!v||!v.cid)return toast('القناة غير متوفرة');CHN={id:v.cid,n:v.by,av:v.av||AV[v.cid]};view='chan';tok++;show()}
-function chBtns(){const sb=P.subs[CHN.id],e=$('#cac');if(!e)return;e.innerHTML=`<button class="ab${sb?' on':''}" id="csb">${sb?'مشترك ✓':'اشتراك'}</button><button class="ab${sb&&sb.bell?' on':''}" id="cbl"${sb?'':' hidden'}>${sb&&sb.bell?'🔔 الإشعارات مفعّلة':'🔕 الإشعارات'}</button>`}
+function chBtns(){const sb=P.subs[CHN.id],e=$('#cac');if(!e)return;e.innerHTML=`<button class="ab${sb?' on':''}" id="csb">${sb?ic(CHK):''}<span>${sb?'مشترك':'اشتراك'}</span></button><button class="ab${sb&&sb.bell?' on':''}" id="cbl"${sb?'':' hidden'}>${ic(sb&&sb.bell?BELL:BELLX)}<span>الإشعارات</span></button>`}
 async function showChan(){const A=$('#app'),c=CHN,my=tok,a=c.av||AV[c.id];
  H_(A,`<button class="chip sq" id="chb">‹ رجوع</button><div class="chb" id="cbn"></div><div class="chh soft sq"><span class="av2 big">${esc((c.n||'؟')[0])}${a?`<img class="cavi" src="${esc(a)}" alt="">`:''}</span><div><b>${esc(c.n)}</b><small id="chs">جاري التحميل…</small></div></div><div class="ar" id="cac"></div><div class="stg" id="cst" hidden></div><div class="dsc" id="cds" hidden></div><h2 style="margin-top:16px">المقاطع</h2><div id="rs"><div class="sk sq"></div><div class="sk sq"></div></div>`);sqAll($('#rs'));chBtns();busy(1);
  try{const o=await chinfo(c.id);if(my!=tok||view!='chan')return;const vw=o.vs.reduce((t,v)=>t+(+v.views||0),0),sb=P.subs[c.id];if(sb&&!sb.last&&o.vs[0]){sb.last=o.vs[0].id;svP()}
-  $('#chs').textContent=(o.subs>0?nf.format(o.subs)+' مشترك':'')+(o.ok?' ✓':'');
+  $('#chs').innerHTML=(o.subs>0?nf.format(o.subs)+' مشترك':'')+(o.ok?' <i class="vf">'+ic(CHK)+'</i>':'');
   if(o.bn&&/^https/.test(o.bn))$('#cbn').style.backgroundImage=`url(${o.bn})`;else $('#cbn').hidden=true;
   const st=$('#cst');st.hidden=false;st.innerHTML=`<div><b data-n="${o.vs.length}">0</b><small>مقطع معروض</small></div><div><b>${nf.format(vw)}</b><small>مشاهدات المقاطع</small></div><div><b>${o.subs>0?nf.format(o.subs):'—'}</b><small>مشترك</small></div>`;cnt();
   if(o.d){const d=$('#cds');d.hidden=false;d.innerHTML='<b>عن القناة</b><div class="dsx" id="cdx"></div>';$('#cdx').textContent=htx(o.d);d.onclick=()=>$('#cdx').classList.toggle('open')}
   put(o.vs);if(!o.vs.length)H_($('#rs'),'<div class="ms">ما لقيت مقاطع.</div>')}
  catch(_){if(my==tok){$('#chs').textContent='';H_($('#rs'),'<div class="ms">تعذّر تحميل القناة.<br><br><button class="bt sq" id="rt">إعادة المحاولة</button></div>')}}busy(0)}
-function subsList(){const e=Object.entries(P.subs);H_($('#rs'),e.length?e.map(([id,s])=>`<div class="chh soft sq" data-ch2="${esc(id)}" role="button"><span class="av2">${esc((s.n||'؟')[0])}${s.av?`<img class="cavi" src="${esc(s.av)}" alt="">`:''}</span><div style="flex:1"><b>${esc(s.n)}</b><small>${s.bell?'🔔 الإشعارات مفعّلة':'🔕 بدون إشعارات'}</small></div></div>`).join(''):'<div class="ms">ما اشتركت بأي قناة.<br>افتح أي قناة واضغط «اشتراك».</div>')}
+function subsList(){const e=Object.entries(P.subs);H_($('#rs'),e.length?e.map(([id,s])=>`<div class="chh soft sq" data-ch2="${esc(id)}" role="button"><span class="av2">${esc((s.n||'؟')[0])}${s.av?`<img class="cavi" src="${esc(s.av)}" alt="">`:''}</span><div style="flex:1"><b>${esc(s.n)}</b><small>${ic(s.bell?BELL:BELLX)}${s.bell?'الإشعارات مفعّلة':'بدون إشعارات'}</small></div></div>`).join(''):'<div class="ms">ما اشتركت بأي قناة.<br>افتح أي قناة واضغط «اشتراك».</div>')}
 const askN=()=>{try{if(Notification.permission=='default')Notification.requestPermission()}catch(_){}};
 $('#app').addEventListener('click',e=>{const r=e.target.closest('[data-ch2]');if(r){const s=P.subs[r.dataset.ch2];return chanOpen({cid:r.dataset.ch2,by:s.n,av:s.av})}
  const t=e.target.closest('button');if(!t)return;
  if(t.id=='chb')sel(tabs()[0]);
- else if(t.id=='csb'){const id=CHN.id,o=CC['ch'+id];if(P.subs[id]){delete P.subs[id];toast('أُلغي الاشتراك')}else{P.subs[id]={n:CHN.n,av:(o&&o.av)||CHN.av||AV[id],bell:1,last:o&&o.vs[0]?o.vs[0].id:''};P.ch[CHN.n]=(P.ch[CHN.n]||0)+4;toast('تم الاشتراك، وبوصلك جديد القناة 🔔');askN()}svP();chBtns()}
+ else if(t.id=='csb'){const id=CHN.id,o=CC['ch'+id];if(P.subs[id]){delete P.subs[id];toast('أُلغي الاشتراك')}else{P.subs[id]={n:CHN.n,av:(o&&o.av)||CHN.av||AV[id],bell:1,last:o&&o.vs[0]?o.vs[0].id:''};P.ch[CHN.n]=(P.ch[CHN.n]||0)+4;toast('تم الاشتراك، وبوصلك جديد القناة');askN()}svP();chBtns()}
  else if(t.id=='cbl'){const s=P.subs[CHN.id];if(s){s.bell=s.bell?0:1;if(s.bell)askN();svP();chBtns();toast(s.bell?'تم تفعيل الإشعارات':'تم إيقاف الإشعارات')}}});
-function ntf(n,v){toast('🔔 '+n+': مقطع جديد');try{if(Notification.permission=='granted'){const x=new Notification(n+' نزّل مقطع جديد',{body:v.title,icon:'https://i.ytimg.com/vi/'+v.id+'/mqdefault.jpg'});x.onclick=()=>{focus();openV(v)}}}catch(_){}}
+function ntf(n,v){toast(n+': مقطع جديد');try{if(Notification.permission=='granted'){const x=new Notification(n+' نزّل مقطع جديد',{body:v.title,icon:'https://i.ytimg.com/vi/'+v.id+'/mqdefault.jpg'});x.onclick=()=>{focus();openV(v)}}}catch(_){}}
 async function checkSubs(){for(const id in P.subs){const c=P.subs[id];if(!c||!c.bell)continue;try{const o=await chinfo(id,1),l=o.vs[0];if(!l)continue;if(c.last&&c.last!=l.id){c.last=l.id;svP();ntf(c.n,l)}else if(!c.last){c.last=l.id;svP()}}catch(_){}}}
 setTimeout(checkSubs,8000);setInterval(checkSubs,6e5);
 /* ضغطة مطولة على المقطع: إحصائيات + اقتراح */
-function vsheet(v){if(!v)return;pick(v.title.slice(0,70),[['no','🚫 لا تقترح من هذه القناة'],['yes','👍 اقترح من هذه القناة'],['ch','📺 عرض القناة']],'',a=>{if(a=='no'){P.ch[v.by]=-10;P.bad[v.id]=1;$$('#rs .v').forEach(c=>{const x=list[+c.dataset.i];if(x&&x.by==v.by)c.remove()});toast('ما راح أعرض مقاطع من '+v.by)}else if(a=='yes'){P.ch[v.by]=Math.max(P.ch[v.by]||0,0)+6;delete P.bad[v.id];toast('أعرض لك أكثر من '+v.by)}else return chanOpen(v);svP()});
+function vsheet(v){if(!v)return;pick(v.title.slice(0,70),[['no','لا تقترح من هذه القناة'],['yes','اقترح من هذه القناة']],'',a=>{if(a=='no'){P.ch[v.by]=-10;P.bad[v.id]=1;$$('#rs .v').forEach(c=>{const x=list[+c.dataset.i];if(x&&x.by==v.by)c.remove()});toast('ما راح أعرض مقاطع من '+v.by)}else if(a=='yes'){P.ch[v.by]=Math.max(P.ch[v.by]||0,0)+6;delete P.bad[v.id];toast('أعرض لك أكثر من '+v.by)}svP()});$$('#pkl [data-v]').forEach(b=>{b.classList.add('pi');b.insertAdjacentHTML('afterbegin',ic(b.dataset.v=='no'?BLK:IUP))});
  $('#pkl').insertAdjacentHTML('afterbegin',`<div class="vst"><div><b>${fmt(v.dur)||'—'}</b><small>المدة</small></div><div><b>${v.views>0?nf.format(v.views):'—'}</b><small>مشاهدة</small></div><div><b id="vsl">…</b><small>إعجاب</small></div><div class="w2"><small>${esc(v.by)}</small> <small id="vsd"></small></div></div>`);
  vinfo(v.id).then(d=>{const a=$('#vsl'),b=$('#vsd');if(a)a.textContent=d.l>0?nf.format(d.l):'—';if(b)b.textContent=d.up?'· '+d.up:''}).catch(()=>{const a=$('#vsl');if(a)a.textContent='—'})}
 const lps=(e,c)=>{LP=1;setTimeout(()=>LP=0,700);hap(25);vsheet(list[+c.dataset.i])};
